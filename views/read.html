@@ -1,0 +1,35 @@
+<!doctype HTML>
+<html>
+
+<head>
+  <title>makes movies</title>
+</head>
+
+<body>
+
+  <h1>Movies</h1>
+
+  <form method="POST" action="/movies">
+    <label>Year: <input type="number" name="year" placeholder="year" /></label>
+    <label>Title: <input type="text" name="title" placeholder="title" /></label>
+    <label>IMDB Code: <input type="text" name="imdb" placeholder="imdb code" /></label>
+    <input type="submit" value="Save" />
+  </form>
+
+  <hr/>
+
+  <ul>
+    {% for movie in movies %}
+    <li>
+      <a href="http://www.imdb.com/title/{{ movie.imdb }}">{{ movie.title }}, {{ movie.year }}</a>
+    </li>
+    {% else %}
+    <li>
+      No movies found.
+    </li>
+    {% endfor %}
+  </ul>
+
+</body>
+
+</html>
